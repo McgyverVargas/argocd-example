@@ -65,7 +65,7 @@ spec:
   selector:
     app: microsvc
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: microsvc
@@ -73,6 +73,13 @@ metadata:
     app: microsvc
     tier: backend
 spec:
-  backend:
-    serviceName: microsvc
-    servicePort: 8080
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: microsvc
+                port:
+                  number: 8080
