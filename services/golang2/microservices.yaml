@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: application
-        image: sammy/go-web-app
+        image: raul890608/go-web-app
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 3000
